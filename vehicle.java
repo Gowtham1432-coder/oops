@@ -1,39 +1,46 @@
-class vehicle{
-String brand;
-int speed;
-int capacity;
+class Vehicle {
+    String brand;
+    int speed;
+    int capacity;
 
- vehicle( String brand,int speed,int capacity){
-this.brand = brand;
-this.speed = speed ;
-this.capacity = capacity ;
-}
+    Vehicle(String brand, int speed, int capacity) {
+        this.brand = brand;
+        this.speed = speed;
+        this.capacity = capacity;
+    }
 
-   public void displayinfo(String brand,int speed,int capacity){
-System.out.println(" this are car details");
-System.out.println("--------------------------------");
-System.out.println(" ");
-}
-}
-class car extends vehicle {
- car( String brand,int speed,int capacity){
-this.brand = brand;
-this.speed = speed ;
-this.capacity = capacity ;
+    public void displayInfo() {
+        System.out.println("This is vehicle details:");
+        System.out.println("--------------------------------");
+        System.out.println("Brand: " + brand);
+        System.out.println("Speed: " + speed + " km/h");
+        System.out.println("Capacity: " + capacity + " persons");
+        System.out.println();
+    }
 }
 
+class Car extends Vehicle {
+    Car(String brand, int speed, int capacity) {
+        super(brand, speed, capacity); // Calling the parent constructor
+    }
 
+    @Override
+    public void displayInfo() {
+        System.out.println("This is car details:");
+        System.out.println("--------------------------------");
+        System.out.println("Brand: " + brand);
+        System.out.println("Speed: " + speed + " km/h");
+        System.out.println("Capacity: " + capacity + " persons");
+        System.out.println();
+    }
+}
 
-public void displayinfo( String brand ,int speed , int capacity){
-System.out.println(" this are car details");
-System.out.println("--------------------------------");
-System.out.println(" ");
-}
-}
-class main {
-public static void main(String args[]){
-vehicle bab = new vehicle();
-bab.displayinfo("apple" , 75, 4);
+public class Main {
+    public static void main(String[] args) {
+        Vehicle bab = new Vehicle("Apple", 75, 4); // Fixed constructor
+        bab.displayInfo();
 
-}
+        Car car = new Car("Honda", 150, 4);
+        car.displayInfo();
+    }
 }
